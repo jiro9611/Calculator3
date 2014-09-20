@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>Practice1</title>
+    <!--default setting of chinese and html content -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF8" />
+</head>
+<form action="calculator3.php" method="GET">
+    <center>
+    	<h1>Calculator</h1>
+    	<!-- PART1_buttons_group -->
+    	<input type="text" name="one"><br>
+    	<input type="radio" name="tql" value="a"> + <br>
+    	<input type="radio" name="tql" value="b"> - <br>
+    	<input type="radio" name="tql" value="c"> * <br>
+    	<input type="radio" name="tql" value="d"> / <br>
+    	<input type="text" name="two"><br>
+		<!-- PART2_declare_variable: GET value from input name tag -->
+		<?php
+			error_reporting(0);
+			$one = $_GET['one'];
+			$two = $_GET['two'];
+			$tql = $_GET['tql'];
+		?>
+		<!-- PART3_build submit and reset buttons -->
+		<input type="submit" value="送出">
+		<input type="reset" value="清除">
+    </center>
+</form>
+	<center>
+		<!-- PART4_declare_calculation_process -->
+		<?php
+			if ($tql == "a") {
+				$qa1 = $one + $two;
+				echo "<br>$one + $two = $qa1";
+			}
+			if ($tql == "b") {
+				$qa2 = $one - $two;
+				echo "<br>$one - $two = $qa2";
+			}
+			if ($tql == "c") {
+				$qa3 = $one * $two;
+				echo "<br>$one * $two = $qa3";
+			}
+			if ($tql == "d") {
+				$qa4 = $one / $two;
+				echo "<br>$one / $two = $qa4";
+			}
+		?>
+	</center>
+</html>
